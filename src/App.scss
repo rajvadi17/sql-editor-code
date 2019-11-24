@@ -7,6 +7,11 @@
   height: 40vmin;
 }
 
+.btns-plus-min{
+float: right;
+    margin-right: 10%;
+}
+
 .App-header {
   background-color: lightgray;
   min-height: 100vh;
@@ -34,7 +39,7 @@
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: 25px;  /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;

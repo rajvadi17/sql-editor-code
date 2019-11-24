@@ -157,37 +157,47 @@ class OrderPage extends Component{
                     <Grid item xs={12}>
                     <i className = "material-icons">local_pizza</i>
                     SMALL
+                    <div className="btns-plus-min">
                     <Icon color="primary" onClick={this.removeSmall}>remove_circle</Icon>
                     {this.state.small}
                     <Icon color="secondary" onClick={this.addSmall}>add_circle</Icon>
+                    </div>
                     </Grid>
                     <Grid item xs={12}>
                     <i className = "material-icons">local_pizza</i>
                     MEDIUM
+                    <div  className="btns-plus-min">
                     <Icon color="primary" onClick={this.removeMedium}>remove_circle</Icon>
                     {this.state.medium}
                     <Icon color="secondary" onClick={this.addMedium}>add_circle</Icon>
+                    </div>
                     </Grid>
                     <Grid item xs={12}>
                     <i className = "material-icons">local_pizza</i>
                     LARGE
+                    <div  className="btns-plus-min">
                     <Icon color="primary" onClick={this.removeLarge}>remove_circle</Icon>
                     {this.state.large}
                     <Icon color="secondary" onClick={this.addLarge}>add_circle</Icon>
+                    </div>
                     </Grid>
                     <hr/>
                     <Grid item xs={12}>
                     ADULTS
+                    <div  className="btns-plus-min">
                     <Icon color="primary">remove_circle</Icon>
                     {this.state.adults}
                     <Icon color="secondary" onClick={this.addAdult}>add_circle</Icon>
+                    </div>
                     </Grid>
                     <hr/>
                     <Grid item xs={12}>
                     CHILDREN
+                    <div  className="btns-plus-min">
                     <Icon color="primary">remove_circle</Icon>
                     {this.state.children}
                     <Icon color="secondary" onClick={this.addChild}>add_circle</Icon>
+                    </div>
                     </Grid>
                  </Grid>
                 </div>
