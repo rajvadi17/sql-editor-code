@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+  
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: lightgray;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url('./pizza.jpg');
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.order-pizza-div{
+  border: brown;
+    border-style: solid;
+}
+// .material-icons{
+//   font-family: 'Material Icons';
+//   font-weight: normal;
+// }
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+.pizza-tag{
+  border: brown;
+  font-family: auto;
+}
+.order-pizza{
+  width: 50%;
+    height: 500px;
+}
+
+.order-pizza-btn{
+  /* margin-top: 25% !important; */
+  color: brown !important;
+    background-color: #fff !important;
+    &:hover{
+      color: #fff !important;
+      background-color: chocolate !important;
+    }
+}
+
+.App-link {
+  color: #09d3ac;
+}
