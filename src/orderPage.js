@@ -103,7 +103,7 @@ class OrderPage extends Component{
   removeSmall = () => {
     let totalCost = this.state.small * smallCost + this.state.medium * mediumCost + 
                     this.state.large * largeCost - 150;
-    if(totalCost >= MinTotal && this.state.small > 0) {
+    if(totalCost >= MinTotal && this.state.small -1 >= 0) {
       this.setState({small: this.state.small -1,
       children: this.state.children -1})
     }
@@ -129,7 +129,7 @@ class OrderPage extends Component{
   removeMedium = () => {
     let totalCost = this.state.small * smallCost + this.state.medium * mediumCost + 
                     this.state.large * largeCost - 200;
-    if(totalCost >= MinTotal && this.state.medium >= 0) {
+    if(totalCost >= MinTotal && this.state.medium-1 >= 0) {
       let adults = this.state.adults, children = this.state.children;
       if(this.state.adults >= 1) {
          adults = this.state.adults - 1;
@@ -144,14 +144,14 @@ class OrderPage extends Component{
   removeLarge = () => {
     let totalCost = this.state.small * smallCost + this.state.medium * mediumCost + 
                     this.state.large * largeCost - 300;
-    if(totalCost >= MinTotal && this.state.large >= 0) {
+    if(totalCost >= MinTotal && this.state.large-1 >= 0) {
       let adults = this.state.adults , children = this.state.children;
       if(this.state.adults >= 2) {
         adults = this.state.adults - 2;
       } else {
          children = this.state.children -2;
       }
-      this.setState({medium: this.state.medium -1,
+      this.setState({large: this.state.large -1,
       adults, children});
     }
   }
