@@ -11,7 +11,15 @@
 float: right;
     margin-right: 10%;
 }
+.total-amt{
+margin-left: 34%;
+font-size: 21px;
+}
 
+.total-amt-div{
+margin-left: 19%;
+    font-size: 22px;
+}
 .App-header {
   background-color: lightgray;
   min-height: 100vh;
@@ -26,6 +34,20 @@ float: right;
   color: white;
 }
 
+.small-pizza {
+  color: rgb(243, 117, 28);
+  font-size: 23px !important;
+}
+
+.medium-pizza {
+  color: rgb(243, 117, 28);
+  font-size: 28px !important;
+}
+
+.large-pizza {
+  color: rgb(243, 117, 28);
+  font-size: 32px !important;
+}
 .order-pizza-div{
   border: brown;
     border-style: solid;
@@ -44,6 +66,7 @@ float: right;
   line-height: 1;
   text-transform: none;
   letter-spacing: normal;
+  margin: 0px 5px -3px 5px;
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;

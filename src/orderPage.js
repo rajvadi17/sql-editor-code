@@ -103,12 +103,29 @@ class OrderPage extends Component{
   removeSmall = () => {
     let totalCost = this.state.small * smallCost + this.state.medium * mediumCost + 
                     this.state.large * largeCost - 150;
-    if(totalCost >= MinTotal && this.state.small >= 0) {
+    if(totalCost >= MinTotal && this.state.small > 0) {
       this.setState({small: this.state.small -1,
       children: this.state.children -1})
     }
   }
 
+  removeChild = () => {
+    let totalCost = this.state.small * smallCost + this.state.medium * mediumCost + 
+                    this.state.large * largeCost - 150;
+    if(totalCost >= MinTotal && this.state.small > 0) {
+    this.setState({small: this.state.small -1,
+    children: this.state.children -1});
+    }
+  }
+
+  removeAdult = () => {
+    let totalCost = this.state.small * smallCost + this.state.medium * mediumCost + 
+    this.state.large * largeCost - 200;
+    if(totalCost >= MinTotal && this.state.medium > 0) {
+    this.setState({medium: this.state.medium -1,
+    adults: this.state.adults -1});
+}
+  }
   removeMedium = () => {
     let totalCost = this.state.small * smallCost + this.state.medium * mediumCost + 
                     this.state.large * largeCost - 200;
@@ -147,6 +164,18 @@ class OrderPage extends Component{
     
   }
   render (){
+    let maxSmallDisable = this.state.small * smallCost + this.state.medium * mediumCost + 
+                    this.state.large * largeCost + 150;
+    let maxMediumDisable = this.state.small * smallCost + this.state.medium * mediumCost + 
+                    this.state.large * largeCost + 200;
+    let maxLargeDisable = this.state.small * smallCost + this.state.medium * mediumCost + 
+                    this.state.large * largeCost + 300;
+    let minSmallDisable = this.state.small * smallCost + this.state.medium * mediumCost + 
+                    this.state.large * largeCost - 150;
+    let minMediumDisable = this.state.small * smallCost + this.state.medium * mediumCost + 
+                    this.state.large * largeCost - 200;
+    let minLargeDisable = this.state.small * smallCost + this.state.medium * mediumCost + 
+                    this.state.large * largeCost - 300;
     return(
             <Paper className="order-pizza">
                 <h3 className="pizza-tag">
@@ -155,53 +184,60 @@ class OrderPage extends Component{
                 <div className="order-pizza-div">
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                    <i className = "material-icons">local_pizza</i>
+                    <i className = "material-icons small-pizza">local_pizza</i>
+                    <span className="small">
                     SMALL
+                    </span>
                     <div className="btns-plus-min">
-                    <Icon color="primary" onClick={this.removeSmall}>remove_circle</Icon>
+                    <Icon color={minSmallDisable < MinTotal || this.state.small == 0 ? "disable": "primary"}  onClick={this.removeSmall}>remove_circle</Icon>
                     {this.state.small}
-                    <Icon color="secondary" onClick={this.addSmall}>add_circle</Icon>
+                    <Icon color={maxSmallDisable > MaxTotal ? "disable": "secondary"} onClick={this.addSmall}>add_circle</Icon>
                     </div>
                     </Grid>
                     <Grid item xs={12}>
-                    <i className = "material-icons">local_pizza</i>
+                    <i className = "material-icons medium-pizza">local_pizza</i>
                     MEDIUM
                     <div  className="btns-plus-min">
-                    <Icon color="primary" onClick={this.removeMedium}>remove_circle</Icon>
+                    <Icon color={minMediumDisable < MinTotal || this.state.medium == 0 ? "disable": "primary"} onClick={this.removeMedium}>remove_circle</Icon>
                     {this.state.medium}
-                    <Icon color="secondary" onClick={this.addMedium}>add_circle</Icon>
+                    <Icon color={maxMediumDisable > MaxTotal ? "disable": "secondary"} onClick={this.addMedium}>add_circle</Icon>
                     </div>
                     </Grid>
                     <Grid item xs={12}>
-                    <i className = "material-icons">local_pizza</i>
+                    <i className = "material-icons large-pizza">local_pizza</i>
                     LARGE
                     <div  className="btns-plus-min">
-                    <Icon color="primary" onClick={this.removeLarge}>remove_circle</Icon>
+                    <Icon color={minLargeDisable < MinTotal || this.state.large == 0 ? "disable": "primary"} onClick={this.removeLarge}>remove_circle</Icon>
                     {this.state.large}
-                    <Icon color="secondary" onClick={this.addLarge}>add_circle</Icon>
+                    <Icon color={maxLargeDisable > MaxTotal ? "disable": "secondary"} onClick={this.addLarge}>add_circle</Icon>
                     </div>
                     </Grid>
                     <hr/>
                     <Grid item xs={12}>
                     ADULTS
                     <div  className="btns-plus-min">
-                    <Icon color="primary">remove_circle</Icon>
+                    <Icon color={minMediumDisable < MinTotal || this.state.adults == 0 ? "disable":"primary"} onClick={this.removeAdult}>remove_circle</Icon>
                     {this.state.adults}
-                    <Icon color="secondary" onClick={this.addAdult}>add_circle</Icon>
+                    <Icon color={maxMediumDisable > MaxTotal ? "disable": "secondary"} onClick={this.addAdult}>add_circle</Icon>
                     </div>
                     </Grid>
                     <hr/>
                     <Grid item xs={12}>
                     CHILDREN
                     <div  className="btns-plus-min">
-                    <Icon color="primary">remove_circle</Icon>
+                    <Icon color={minSmallDisable < MinTotal || this.state.children == 0 ? "disable":"primary"} onClick={this.removeChild}>remove_circle</Icon>
                     {this.state.children}
-                    <Icon color="secondary" onClick={this.addChild}>add_circle</Icon>
+                    <Icon color={maxSmallDisable > MaxTotal ? "disable": "secondary"} onClick={this.addChild}>add_circle</Icon>
                     </div>
                     </Grid>
                  </Grid>
                 </div>
-                Order Total {this.calculateTotal()}
+                <span className="total-amt-div"> 
+                Order Total
+                </span>
+                <span className="total-amt"> 
+                {this.calculateTotal()}
+                </span>
             </Paper>);
   }
 }
